@@ -553,7 +553,7 @@ export function convertMSToDelayString(ms: number): string {
   return result;
 }
 
-export function successMessage(str: string, emoji = "<:Dropship_GreenCheck:1143814842701058129>") {
+export function successMessage(str: string, emoji = "✅") {
   return emoji ? `${emoji} ${str}` : str;
 }
 
