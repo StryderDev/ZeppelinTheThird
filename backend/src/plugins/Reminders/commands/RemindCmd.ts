@@ -71,7 +71,7 @@ export const RemindCmd = remindersCmd({
     sendSuccessMessage(
       pluginData,
       msg.channel,
-      `I will remind you **<t:${timeUntilReminder}:R>** at **<t:${prettyReminderTime}>**. ${reminderTime}`,
+      `I will remind you **<t:${timeUntilReminder}:R>** at **<t:${prettyReminderTime}>**.`,
     );
   },
 });
