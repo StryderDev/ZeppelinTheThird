@@ -61,8 +61,6 @@ export const RemindCmd = remindersCmd({
 
     registerUpcomingReminder(reminder);
 
-    const currentDateUnixms = Date.now();
-
     const msUntilReminder = reminderTime.diff(now);
     const timeUntilReminder = humanizeDuration(msUntilReminder, { largest: 2, round: true });
     const prettyReminderTime = (await timeAndDate.inMemberTz(msg.author.id, reminderTime)).format(
