@@ -62,7 +62,7 @@ export const RemindCmd = remindersCmd({
     registerUpcomingReminder(reminder);
 
     const msUntilReminder = reminderTime.diff(now);
-    const sUntilReminder = Math.floor((now + msUntilReminder) / 1000);
+    const sUntilReminder = Math.floor((Date.now() + msUntilReminder) / 1000);
     const timeUntilReminder = humanizeDuration(msUntilReminder, { largest: 2, round: true });
     const prettyReminderTime = (await timeAndDate.inMemberTz(msg.author.id, reminderTime)).format(
       pluginData.getPlugin(TimeAndDatePlugin).getDateFormat("pretty_datetime"),
