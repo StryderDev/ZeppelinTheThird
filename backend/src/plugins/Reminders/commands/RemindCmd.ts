@@ -62,6 +62,7 @@ export const RemindCmd = remindersCmd({
     registerUpcomingReminder(reminder);
 
     const msUntilReminder = reminderTime.diff(now);
+    const sUntilReminder = Math.ceil(msUntilReminder / 1000);
     const timeUntilReminder = humanizeDuration(msUntilReminder, { largest: 2, round: true });
     const prettyReminderTime = (await timeAndDate.inMemberTz(msg.author.id, reminderTime)).format(
       pluginData.getPlugin(TimeAndDatePlugin).getDateFormat("pretty_datetime"),
@@ -70,7 +71,7 @@ export const RemindCmd = remindersCmd({
     sendSuccessMessage(
       pluginData,
       msg.channel,
-      `I will remind you in **${timeUntilReminder}** at **${prettyReminderTime}**`,
+      `I will remind you **<t:${sUntilReminder}:R>** at **<t:${sUntilReminder}>**`,
     );
   },
 });
